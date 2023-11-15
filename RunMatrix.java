@@ -22,8 +22,6 @@ public class RunMatrix {
 
 
 
-// I need line 10 somehow- how can I fix it- not taking user input
-// fill with numbers- use 1-(input*input)
-//highlight diagonal
+
 //swap numbers
 //print out flipped matrix

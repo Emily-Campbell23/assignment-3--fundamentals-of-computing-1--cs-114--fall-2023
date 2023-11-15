@@ -1,4 +1,3 @@
-// Matrix.java
 public class Matrix {
     int size;
     int[][] matrix;
@@ -11,7 +10,7 @@ public class Matrix {
         // Indicate that we are now populating the matrix
         System.out.println("Now populating matrix...");
 
-        // Populate the matrix with 1 - (size * size) and highlight the diagonal from lower left to upper right
+        // Populate the first matrix with all 0s and highlight the diagonal from lower left to upper right
         for (int height = 0; height < matrix.length; height++) {
             for (int width = 0; width < matrix[height].length; width++) {
                 if (height + width == size - 1) {
@@ -25,17 +24,42 @@ public class Matrix {
             System.out.println();
         }
 
-        // Separate the two matrices with a line
-        System.out.println("Second Matrix:");
+        System.out.println("\nSecond Matrix:");
 
-        // Populate the second matrix with the same formula (1 - (size * size)) and highlight exactly the same way as the first one
+        // Populate the second matrix without repeats, incrementing by 1
+        int count = 1;
         for (int height = 0; height < matrix.length; height++) {
             for (int width = 0; width < matrix[height].length; width++) {
-                if (height + width == size - 1) {
-                    // Highlight the diagonal with light green background
-                    System.out.print("\u001B[42m" + (1 - (size * size)) + "\t\u001B[0m");
+                matrix[height][width] = count++;
+            }
+        }
+
+        // Print the second matrix with the diagonal highlighted from lower left to upper right
+        printMatrixFromLowerLeftToUpperRight();
+
+        // Separate the third matrix with a line
+        System.out.println("\nThird Matrix:");
+
+        // Populate the third matrix without repeats, incrementing by 1
+        count = 1;
+        for (int height = 0; height < matrix.length; height++) {
+            for (int width = 0; width < matrix[height].length; width++) {
+                matrix[height][width] = count++;
+            }
+        }
+
+        // Print the third matrix with the diagonal highlighted from lower left to upper right
+        printMatrixFromLowerLeftToUpperRight();
+    }
+
+    // Method to print the matrix with the diagonal highlighted from lower left to upper right
+    private void printMatrixFromLowerLeftToUpperRight() {
+        for (int height = 0; height < matrix.length; height++) {
+            for (int width = 0; width < matrix[height].length; width++) {
+                // Highlight the diagonal from lower left to upper right with light green background
+                if (width == size - height - 1) {
+                    System.out.print("\u001B[42m" + matrix[height][width] + "\t\u001B[0m");
                 } else {
-                    matrix[height][width] = 1 - (size * size);
                     System.out.print(matrix[height][width] + "\t");
                 }
             }
