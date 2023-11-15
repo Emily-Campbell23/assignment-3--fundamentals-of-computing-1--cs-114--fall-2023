@@ -9,7 +9,7 @@ public class RunMatrix {
         scanner.nextLine();
 
 
-        System.out.println("Your matrix is" + matrixSize + " X " + matrixSize);
+        System.out.println("Your matrix is " + matrixSize + " X " + matrixSize);
         System.out.println("Now printing matrix with default values...");
 
         Matrix size1 = new Matrix(matrixSize);
