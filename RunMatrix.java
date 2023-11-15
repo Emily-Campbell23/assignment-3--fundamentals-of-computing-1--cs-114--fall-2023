@@ -1,4 +1,3 @@
-// RunMatrix.java
 import java.util.Scanner;
 
 public class RunMatrix {
@@ -18,10 +17,3 @@ public class RunMatrix {
     }
 }
 
-
-
-
-
-
-//swap numbers
-//print out flipped matrix
