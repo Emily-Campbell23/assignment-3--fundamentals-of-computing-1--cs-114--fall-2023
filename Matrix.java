@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Matrix {
     int size;
     int[][] matrix;
@@ -6,7 +8,7 @@ public class Matrix {
         this.size = size;
         this.matrix = new int[size][size];
 
-        System.out.println("Now populating matrix...");
+        System.out.println("Printing Matrix with default values...");
 
         // Populate the first matrix with all 0s and highlight the diagonal from lower left to upper right
         for (int height = 0; height < matrix.length; height++) {
@@ -22,9 +24,8 @@ public class Matrix {
             System.out.println();
         }
 
-        System.out.println("\nSecond Matrix:");
+        System.out.println("\nPopulating matrix:");
 
-        // Populate the second matrix without repeats, incrementing by 1
         int count = 1;
         for (int height = 0; height < matrix.length; height++) {
             for (int width = 0; width < matrix[height].length; width++) {
@@ -35,11 +36,9 @@ public class Matrix {
         // Print the second matrix with the diagonal highlighted from lower left to upper right
         printMatrixFromLowerLeftToUpperRight();
 
-        // Separate the third matrix with a line
-        System.out.println("\nThird Matrix:");
+        System.out.println("\nPrinting flipped Matrix:");
 
-        // Populate the third matrix without repeats, incrementing by 1
-        count = size * size; // Start from the maximum value and decrement
+        count = size * size;
         for (int height = matrix.length - 1; height >= 0; height--) {
             for (int width = matrix[height].length - 1; width >= 0; width--) {
                 matrix[height][width] = count--;
@@ -81,7 +80,16 @@ public class Matrix {
     }
 
     public static void main(String[] args) {
-        // Example usage with user input 4
-        Matrix matrix = new Matrix(4);
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the matrix size from the user
+        System.out.print("Enter the size of the matrix: ");
+        int size = scanner.nextInt();
+        System.out.println("Your matrix is " + size + " X " + size);
+        // Example usage with user input
+        Matrix matrix = new Matrix(size);
+
+        // Close the scanner
+        scanner.close();
     }
 }
